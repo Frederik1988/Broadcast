@@ -11,7 +11,7 @@ s = socket(AF_INET, SOCK_DGRAM)
 s.setsockopt(SOL_SOCKET, SO_BROADCAST, 1)
 
 sense = SenseHat()
-def get_sense_data():
+def get_sense_data(index):
   hum = sense.get_humidity()
   temp = sense.get_temperature()
   press = sense.get_pressure()
@@ -20,11 +20,11 @@ def get_sense_data():
   sense_data.append(temp)
   sense_data.append(hum)
   sense_data.append(press)
-  return sense_data
+  return sense_data[index]
 
 
 while True:
-  data = "Current time: " + str(datetime.now())+ "\n" + "And data: " +  str(get_sense_data())
+  data = "Current time: " + str(datetime.now())+ "\n" + "Temperature: " +  str(get_sense_data(0)) + "\n" + "Humidity: " + str(get_sense_data(1)) + "\n" + "Pressure: " + str(get_sense_data(2))
   s.sendto(bytes(data, "UTF-8"), ('<broadcast>', BROADCAST_TO_PORT))
   print(data)
   sleep(5)
