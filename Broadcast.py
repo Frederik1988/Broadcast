@@ -24,7 +24,7 @@ def get_sense_data(index):
 
 
 while True:
-  data = "Current time: " + str(datetime.now())+ "\n" + "Temperature: " +  str(get_sense_data(0)) + "\n" + "Humidity: " + str(get_sense_data(1)) + "\n" + "Pressure: " + str(get_sense_data(2) + "\n")
+  data = "Current time: " + str(datetime.now())+ "\n" + "Temperature: " +  str(get_sense_data(0)) + "\n" + "Humidity: " + str(get_sense_data(1)) + "\n" + "Pressure: " + str(get_sense_data(2))
   s.sendto(bytes(data, "UTF-8"), ('<broadcast>', BROADCAST_TO_PORT))
   print(data)
   sleep(5)
