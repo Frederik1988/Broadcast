@@ -28,3 +28,5 @@ while True:
   s.sendto(bytes(data, "UTF-8"), ('<broadcast>', BROADCAST_TO_PORT))
   print(data)
   sleep(5)
+  
+  counter++
