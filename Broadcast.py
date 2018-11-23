@@ -8,7 +8,7 @@ s = socket(AF_INET, SOCK_DGRAM)
 #s.bind(('', 14593))   #(ip, port)
 # no explicit bind : will bind to default IP + random port
 
-s.setsocketopt(SOL_SOCKET, SO_BROADCAST, 1)
+s.setsockopt(SOL_SOCKET, SO_BROADCAST, 1)
 
 sense = SenseHat()
 def get_sense_data():
